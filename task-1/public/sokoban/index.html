@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sokoban - Puzzle Game</title>
+    <meta name="description" content="Classic Sokoban puzzle game - push boxes to goals">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sokoban</h1>
+            <p class="subtitle">Push all boxes to the goal spots!</p>
+        </header>
+
+        <main>
+            <div class="game-wrapper">
+                <canvas id="gameCanvas" width="640" height="640"></canvas>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Level:</span>
+                        <span id="levelDisplay" class="stat-value">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Moves:</span>
+                        <span id="moveCount" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Pushes:</span>
+                        <span id="pushCount" class="stat-value">0</span>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="undoBtn" class="btn btn-secondary">↶ Undo</button>
+                    <button id="resetBtn" class="btn btn-secondary">↻ Reset</button>
+                    <button id="nextBtn" class="btn btn-primary">Next Level →</button>
+                </div>
+
+                <div class="instructions">
+                    <p><strong>Controls:</strong> Arrow Keys or WASD to move</p>
+                    <p>Push boxes (📦) onto goals (🎯) to win!</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Level Complete Overlay -->
+        <div id="winOverlay" class="overlay hidden">
+            <div class="overlay-content">
+                <h2>🎉 Level Complete!</h2>
+                <p>Moves: <span id="finalMoves"></span> | Pushes: <span id="finalPushes"></span></p>
+                <div class="overlay-buttons">
+                    <button id="replayBtn" class="btn btn-secondary">Replay</button>
+                    <button id="continueBtn" class="btn btn-primary">Next Level</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="levels.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
